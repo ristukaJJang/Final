@@ -12,6 +12,11 @@ def sortDate(num):
         user_month = user[5:7]
         user_day = user[8:10]
 
+        title = input("폴더 이름을 적어주세요(적지 않으면 날짜로 자동 생성됩니다.) : ")
+        if len(title) == 0:
+            title = user_year + user_month + user_day
+
+
         image_path = "C:/Users/정호정/PycharmProjects/metadata/testfile/"
         img_list = os.listdir(image_path)
         img_list_jpg = [img for img in img_list if img.endswith(".jpg") or img.endswith(".png")]
@@ -71,7 +76,7 @@ def sortDate(num):
 
                         # 하루만 정리할 땐 이 코드로 진행
                         if user_year == pic_date_year and user_month == pic_date_month and user_day == pic_date_day:
-                            dir_name = user_year + user_month + user_day
+                            dir_name = title
                             dst = image_path + dir_name + "/"
 
                             if os.path.exists(image_path + dir_name):

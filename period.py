@@ -4,7 +4,6 @@ import os
 import numpy as np
 import shutil
 
-
 def pic_period(user):
     if user == 2:
         
@@ -17,6 +16,10 @@ def pic_period(user):
         end_year = end[0:4]
         end_month = end[5:7]
         end_day = end[8:10]
+
+        title = input("폴더 이름을 적어주세요(적지 않으면 날짜로 자동 생성됩니다.) : ")
+        if len(title) == 0:
+            title = start_year + start_month + start_day + " - " + end_year + end_month + end_day
 
         image_path = "C:/Users/정호정/PycharmProjects/metadata/testfile/"
         img_list = os.listdir(image_path)
@@ -116,7 +119,7 @@ def pic_period(user):
                             moderate == False
 
                         if moderate == True:
-                            dir_name = start_year + start_month + start_day + " - " + end_year + end_month + end_day
+                            dir_name = title
                             dst = image_path + dir_name + "/"
 
                             if os.path.exists(image_path + dir_name):
