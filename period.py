@@ -140,10 +140,12 @@ def pic_period(user):
 
             except TypeError:
                 print("사진 날짜 정보가 없습니다.")
+                j = j + 1
+                continue
 
             else:
                 j = j + 1
-                continue
+
 
 
     else:
